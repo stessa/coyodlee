@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "envestnet-yodlee"
   spec.version       = Envestnet::Yodlee::VERSION
   spec.authors       = ["Daniel Dyba"]
-  spec.email         = ["daniel.dyba@pnmac.com"]
+  spec.email         = ["daniel.dyba@gmail.com"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
@@ -27,7 +27,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "rest-client", "~> 2.0"
+
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
+  spec.add_development_dependency "vcr", "~> 3.0"
+  spec.add_development_dependency "webmock"
 end

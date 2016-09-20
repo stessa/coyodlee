@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://rest.developer.yodlee.com/services/srest/restserver/v1.0/authenticate/coblogin
+    body:
+      encoding: US-ASCII
+      string: cobrandLogin=<COBRAND_LOGIN>&cobrandPassword=<COBRAND_PASSWORD>
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.0 (darwin14.4.0 x86_64) ruby/2.2.3p173
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - rest.developer.yodlee.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Powered-By:
+      - Unknown
+      Yodlee-Ref-Id:
+      - U1474407142552x12e27s000000NLjRE-1
+      Set-Cookie:
+      - JSESSIONID=6E9736182B49EA7F41595B0DF6B637FC; Path=/services; Secure
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Tue, 20 Sep 2016 21:32:22 GMT
+      Server:
+      - Unknown
+    body:
+      encoding: UTF-8
+      string: '{"cobrandId":10010352,"channelId":-1,"segmentsId":-1,"locale":"en_US","tncVersion":2,"applicationId":"3A4CAE9B71A1CCD7FF41F51006E9ED00","cobrandConversationCredentials":{"sessionToken":"08062013_0:4b3e9b81c1b4d82352e9ea9986318d8183a29ec56f0467310b578e9a3073a6feddb2a133e754dbd2d9a565a0b74720bb5671cb9b38bc7669e4578207e8eee9b5"},"preferenceInfo":{"currencyCode":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","currencyNotationType":{"currencyNotationType":"SYMBOL"},"numberFormat":{"decimalSeparator":".","groupingSeparator":",","groupPattern":"###,##0.##"}}}'
+    http_version: 
+  recorded_at: Tue, 20 Sep 2016 21:32:22 GMT
+recorded_with: VCR 3.0.3
