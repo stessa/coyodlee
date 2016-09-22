@@ -1,4 +1,5 @@
 # Envestnet::Yodlee
+[![Build Status](https://travis-ci.com/pennymac/envestnet-yodlee.svg?token=KvBtKQs616ELBMQxp2n7&branch=master)](https://travis-ci.com/pennymac/envestnet-yodlee)
 
 ## Setup
 
