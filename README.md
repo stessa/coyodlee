@@ -3,19 +3,22 @@
 
 ## Setup
 
-In sandbox mode, point the ```base_url``` to https://rest.developer.yodlee.com/services/rest/srest/restserver/v1.0/.
+In sandbox mode, point the ```base_url``` to ```https://developer.api.yodlee.com/ysl/restserver/v1```.
 
 Export the following environment variables:
 
 <table>
   <tr>
     <td><strong>Environment Variables</strong></td>
+    <td><strong>Description</td>
   </tr>
   <tr>
     <td>YODLEE_COBRAND_LOGIN</td>
+    <td>The Yodlee cobrand login</td>
   <tr/>
   <tr>
     <td>YODLEE_COBRAND_PASSWORD</td>
+    <td>The Yodlee cobrand password</td>
   <tr/>
 </table>
 
@@ -36,6 +39,18 @@ Or install it yourself as:
     $ gem install envestnet-yodlee
 
 ## Usage
+
+This API exposes a ```setup``` method:
+
+``` ruby
+require 'envestnet-yodlee'
+
+Envestnet::Yodlee.setup do |config|
+  config.base_url = ENV['YODLEE_BASE_URL']
+  config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
+  config.cobranded_password = ENV['YODLEE_COBRAND_PASSWORD']
+end
+```
 
 ## Testing
 
