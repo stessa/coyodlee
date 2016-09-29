@@ -27,20 +27,20 @@ http_interactions:
       X-Powered-By:
       - Unknown
       Yodlee-Ref-Id:
-      - U1474407142552x12e27s000000NLjRE-1
+      - M1475179596825j12l26L000000NLlRD-1
       Set-Cookie:
-      - JSESSIONID=6E9736182B49EA7F41595B0DF6B637FC; Path=/services; Secure
+      - JSESSIONID=4BDB925EE816B080607AB9784F04E135; Path=/services; Secure
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Date:
-      - Tue, 20 Sep 2016 21:32:22 GMT
+      - Thu, 29 Sep 2016 20:06:36 GMT
       Server:
       - Unknown
     body:
       encoding: UTF-8
-      string: '{"cobrandId":10010352,"channelId":-1,"segmentsId":-1,"locale":"en_US","tncVersion":2,"applicationId":"3A4CAE9B71A1CCD7FF41F51006E9ED00","cobrandConversationCredentials":{"sessionToken":"08062013_0:4b3e9b81c1b4d82352e9ea9986318d8183a29ec56f0467310b578e9a3073a6feddb2a133e754dbd2d9a565a0b74720bb5671cb9b38bc7669e4578207e8eee9b5"},"preferenceInfo":{"currencyCode":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","currencyNotationType":{"currencyNotationType":"SYMBOL"},"numberFormat":{"decimalSeparator":".","groupingSeparator":",","groupPattern":"###,##0.##"}}}'
+      string: '{"cobrandId":10010352,"channelId":-1,"segmentsId":-1,"locale":"en_US","tncVersion":2,"applicationId":"3A4CAE9B71A1CCD7FF41F51006E9ED00","cobrandConversationCredentials":{"sessionToken":"08062013_0:e8df199192dec91179b79be3870676f1957f311b7b13b203917aec2b135bdfd1148d3e9e26bc679304b3768cc1a0674ca109f5b5f1278c6d9bb0614f1bf263d3"},"preferenceInfo":{"currencyCode":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","currencyNotationType":{"currencyNotationType":"SYMBOL"},"numberFormat":{"decimalSeparator":".","groupingSeparator":",","groupPattern":"###,##0.##"}}}'
     http_version: 
-  recorded_at: Tue, 20 Sep 2016 21:32:22 GMT
+  recorded_at: Thu, 29 Sep 2016 20:06:37 GMT
 recorded_with: VCR 3.0.3
