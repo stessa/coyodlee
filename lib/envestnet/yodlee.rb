@@ -12,12 +12,6 @@ module Envestnet
       end
       
       def cobrand_login(username: cobranded_username, password: cobranded_password)
-        url = "#{base_url}/authenticate/coblogin"
-        payload = { 'cobrandLogin' => username, 'cobrandPassword' => password }
-        RestClient.post(url, payload)
-      end
-
-      def new_cobrand_login(username: cobranded_username, password: cobranded_password)
         url = "#{base_url}/cobrand/login"
         payload = {
           cobrand: {

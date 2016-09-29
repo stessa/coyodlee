@@ -2,45 +2,50 @@
 http_interactions:
 - request:
     method: post
-    uri: https://rest.developer.yodlee.com/services/srest/restserver/v1.0/authenticate/coblogin
+    uri: https://developer.api.yodlee.com/ysl/restserver/v1/cobrand/login
     body:
-      encoding: US-ASCII
-      string: cobrandLogin=<COBRAND_LOGIN>&cobrandPassword=<COBRAND_PASSWORD>
+      encoding: UTF-8
+      string: '{"cobrand":{"cobrandLogin":"<COBRAND_LOGIN>","cobrandPassword":"<COBRAND_PASSWORD>","locale":"en_US"}}'
     headers:
       Accept:
-      - "*/*"
+      - application/json
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
       - rest-client/2.0.0 (darwin14.4.0 x86_64) ruby/2.2.3p173
-      Content-Length:
-      - '75'
       Content-Type:
-      - application/x-www-form-urlencoded
+      - application/json
+      Content-Length:
+      - '114'
       Host:
-      - rest.developer.yodlee.com
+      - developer.api.yodlee.com
   response:
     status:
       code: 200
       message: OK
     headers:
-      X-Powered-By:
-      - Unknown
       Yodlee-Ref-Id:
-      - M1475179596825j12l26L000000NLlRD-1
-      Set-Cookie:
-      - JSESSIONID=4BDB925EE816B080607AB9784F04E135; Path=/services; Secure
+      - A1475184322301G4o27R
       Content-Type:
-      - application/json
+      - application/json;charset=UTF-8
       Transfer-Encoding:
       - chunked
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
       Date:
-      - Thu, 29 Sep 2016 20:06:36 GMT
+      - Thu, 29 Sep 2016 21:25:22 GMT
       Server:
       - Unknown
     body:
-      encoding: UTF-8
-      string: '{"cobrandId":10010352,"channelId":-1,"segmentsId":-1,"locale":"en_US","tncVersion":2,"applicationId":"3A4CAE9B71A1CCD7FF41F51006E9ED00","cobrandConversationCredentials":{"sessionToken":"08062013_0:e8df199192dec91179b79be3870676f1957f311b7b13b203917aec2b135bdfd1148d3e9e26bc679304b3768cc1a0674ca109f5b5f1278c6d9bb0614f1bf263d3"},"preferenceInfo":{"currencyCode":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","currencyNotationType":{"currencyNotationType":"SYMBOL"},"numberFormat":{"decimalSeparator":".","groupingSeparator":",","groupPattern":"###,##0.##"}}}'
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAADVNuYrDMBD9F9Up5vCMLHdex4bUYesgjSQIGDustwv59ygL
+        2737PZ3t6Sdu+ZLdgAAILHRy8fFY7xZ/7/v2MRyP3TTO4cvjiNN09svS4SIt
+        r3OYzwDu5Nbd4lpatmy372sTjnIcre+G5+fj+s8c9KAEyDcYJAVmY+IooQax
+        mthLREvmAVNPFVQqQmJMQh4UgzaEqGy9x5wZA1MVstDVP6CUM5n4GnoImrla
+        8UWbEBNV5dTWlIqRVI6+dO71egPbA7fCAQEAAA==
     http_version: 
-  recorded_at: Thu, 29 Sep 2016 20:06:37 GMT
+  recorded_at: Thu, 29 Sep 2016 21:25:22 GMT
 recorded_with: VCR 3.0.3
