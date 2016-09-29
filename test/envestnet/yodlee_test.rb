@@ -17,13 +17,16 @@ class Envestnet::YodleeTest < Minitest::Test
     assert_equal 'yodlee_cobranded_password', ::Envestnet::Yodlee.cobranded_password
   end
 
-  def test_cobrand_login
+  def test_cobrand_login_without_arguments
     ::Envestnet::Yodlee.setup do |config|
       config.base_url = "https://rest.developer.yodlee.com/services/srest/restserver/v1.0"
+      config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
+      config.cobranded_password = ENV['YODLEE_COBRAND_PASSWORD']
     end
 
     VCR.use_cassette('cobrand_login_success') do
-      response = ::Envestnet::Yodlee.cobrand_login username: ENV['YODLEE_COBRAND_LOGIN'], password: ENV['YODLEE_COBRAND_PASSWORD']
+      response = ::Envestnet::Yodlee.cobrand_login
+
       assert_equal 200, response.code
     end
   end
@@ -35,12 +38,14 @@ class Envestnet::YodleeTest < Minitest::Test
 
     VCR.use_cassette('cobrand_login_success') do
       response = ::Envestnet::Yodlee.cobrand_login username: ENV['YODLEE_COBRAND_LOGIN'], password: ENV['YODLEE_COBRAND_PASSWORD']
+
       json = JSON.parse(response.body, symbolize_names: true)
+
       refute_empty json[:cobrandConversationCredentials][:sessionToken]
     end
   end
 
-  def test_new_cobrand_login_without_parameters
+  def test_new_cobrand_login_without_arguments
     ::Envestnet::Yodlee.setup do |config|
       config.base_url = "https://developer.api.yodlee.com/ysl/restserver/v1"
       config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
@@ -51,12 +56,10 @@ class Envestnet::YodleeTest < Minitest::Test
       response = ::Envestnet::Yodlee.new_cobrand_login
 
       assert_equal 200, response.code
-
-      refute_empty response[:session][:cobSession]
     end
   end
 
-  def test_new_cobrand_login_without_parameters
+  def test_new_cobrand_login_without_parameters_returns_session_token
     ::Envestnet::Yodlee.setup do |config|
       config.base_url = "https://developer.api.yodlee.com/ysl/restserver/v1"
       config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
