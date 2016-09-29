@@ -28,6 +28,22 @@ module Envestnet
         }
         RestClient.post(url, payload.to_json, { content_type: :json, accept: :json })
       end
+
+      def user_login(username:, password:, cobrand_session:, locale: 'en_US')
+        url = "#{base_url}/user/login"
+        payload = {
+          user: {
+            loginName: username,
+            password: password,
+            locale: locale
+          }
+        }
+        RestClient.post(url, payload.to_json, {
+          authorization: "cobSession=#{cobrand_session}",
+          content_type: :json,
+          accept: :json
+        })
+      end
     end
   end
 end
