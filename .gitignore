@@ -9,3 +9,6 @@
 /tmp/
 
 .env
+
+.rbenv-gemsets
+.gems
