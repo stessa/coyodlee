@@ -64,6 +64,11 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Why another Yodlee Ruby library?
+
+* This library supports Yodlee's newer RESTful API. [yodlee-icious](https://github.com/liftforward/yodlee-icious) supports the older RESTful wrapper over the SOAP API.
+* This library aims to be comprehensive in its feature set. [yodlee](https://github.com/aasmith/yodlee) only supports retrieving data from Yodlee MoneyCenter.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/pennymac/envestnet-yodlee. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
