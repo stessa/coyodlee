@@ -71,4 +71,37 @@ class Envestnet::YodleeTest < Minitest::Test
       refute_empty user_json[:user][:session][:userSession]
     end
   end
+
+  def test_providers
+    ::Envestnet::Yodlee.setup do |config|
+      config.base_url = "https://developer.api.yodlee.com/ysl/restserver/v1"
+      config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
+      config.cobranded_password = ENV['YODLEE_COBRAND_PASSWORD']
+    end
+
+    cobrand_session = ''
+
+    VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true) do
+      cobrand_response = ::Envestnet::Yodlee.cobrand_login
+      cobrand_json = JSON.parse(cobrand_response.body, symbolize_names: true)
+      cobrand_session = cobrand_json[:session][:cobSession]
+    end
+
+    user_session = ''
+
+    VCR.use_cassette('user_login_success', allow_playback_repeats: true) do
+      username = ENV['YODLEE_USER_1_LOGIN_NAME']
+      password = ENV['YODLEE_USER_1_PASSWORD']
+      user_response = ::Envestnet::Yodlee.user_login username: username, password: password, cobrand_session: cobrand_session
+      user_json = JSON.parse(user_response.body, symbolize_names: true)
+      user_session = user_json[:user][:session][:userSession]
+    end
+
+    VCR.use_cassette('providers_success') do
+      response = ::Envestnet::Yodlee.providers cobrand_session_token: cobrand_session, user_session_token: user_session
+      providers_json = JSON.parse(response.body, symbolize_names: true)
+
+      refute_empty providers_json[:provider]
+    end
+  end
 end

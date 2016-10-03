@@ -1,6 +1,7 @@
 require "envestnet/yodlee/version"
-require "rest-client"
 require "json"
+require "yajl"
+require "envestnet/yodlee/http_wrapper"
 
 module Envestnet
   module Yodlee
@@ -20,7 +21,7 @@ module Envestnet
             locale: 'en_US'
           }
         }
-        RestClient.post(url, payload.to_json, { content_type: :json, accept: :json })
+        HttpWrapper.post(url: url, body: payload.to_json, headers: { content_type: :json, accept: :json })
       end
 
       def user_login(username:, password:, cobrand_session:, locale: 'en_US')
@@ -32,9 +33,17 @@ module Envestnet
             locale: locale
           }
         }
-        RestClient.post(url, payload.to_json, {
+        HttpWrapper.post(url: url, body: payload.to_json, headers: {
           authorization: "cobSession=#{cobrand_session}",
           content_type: :json,
+          accept: :json
+        })
+      end
+
+      def providers(cobrand_session_token:, user_session_token:)
+        url = "#{base_url}/providers"
+        HttpWrapper.get(url: url, headers: {
+          authorization: "cobSession=#{cobrand_session_token},userSession=#{user_session_token}",
           accept: :json
         })
       end

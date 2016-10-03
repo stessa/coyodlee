@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in envestnet-yodlee.gemspec
+gem 'yajl-ruby', require: 'yajl'
+
 gemspec

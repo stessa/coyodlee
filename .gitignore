@@ -12,3 +12,4 @@
 
 .rbenv-gemsets
 .gems
+*.swp
