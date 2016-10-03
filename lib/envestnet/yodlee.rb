@@ -40,6 +40,14 @@ module Envestnet
         })
       end
 
+      def user_details(cobrand_session_token:, user_session_token:)
+        url = "#{base_url}/user"
+        HttpWrapper.get(url: url, headers: {
+          authorization: "cobSession=#{cobrand_session_token},userSession=#{user_session_token}",
+          accept: :json
+        })
+      end
+
       def providers(cobrand_session_token:, user_session_token:)
         url = "#{base_url}/providers"
         HttpWrapper.get(url: url, headers: {

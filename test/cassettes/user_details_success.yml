@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://developer.api.yodlee.com/ysl/restserver/v1/user/login
+    method: get
+    uri: https://developer.api.yodlee.com/ysl/restserver/v1/user
     body:
-      encoding: UTF-8
-      string: '{"user":{"loginName":"<USER1_LOGIN_NAME>","password":"<USER1_LOGIN_NAME>#123","locale":"en_US"}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -14,11 +14,7 @@ http_interactions:
       User-Agent:
       - rest-client/2.0.0 (darwin14.4.0 x86_64) ruby/2.2.3p173
       Authorization:
-      - cobSession=08062013_2:5b3d62fb081772653265f4abf34694e953c5c5d1da951546b9d514b97a898f06bbf1701f7d26b949106b77f98fe057870e701f6754405d37cc304df1fd666060
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '80'
+      - cobSession=08062013_2:5b3d62fb081772653265f4abf34694e953c5c5d1da951546b9d514b97a898f06bbf1701f7d26b949106b77f98fe057870e701f6754405d37cc304df1fd666060,userSession=08062013_0:7190139064e6bf53a9c11782e9f6f7de0c10800fd7dd67ed7b026270e3e016feca7a3a174039efac8967a84b2a0b3635c49efa7e891ebf6e2b0f64feae2378ea
       Host:
       - developer.api.yodlee.com
   response:
@@ -27,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Yodlee-Ref-Id:
-      - e1475523207283H4F26l
+      - x1475523211688C4Z26H
       Accept-Charset:
       - big5, big5-hkscs, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858,
         ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147,
@@ -56,14 +52,14 @@ http_interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '343'
+      - '207'
       Date:
-      - Mon, 03 Oct 2016 19:33:27 GMT
+      - Mon, 03 Oct 2016 19:33:31 GMT
       Server:
       - Unknown
     body:
       encoding: UTF-8
-      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"session":{"userSession":"08062013_0:7190139064e6bf53a9c11782e9f6f7de0c10800fd7dd67ed7b026270e3e016feca7a3a174039efac8967a84b2a0b3635c49efa7e891ebf6e2b0f64feae2378ea"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy"}}}'
+      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","email":"daniel.dyba@gmail.com","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy"}}}'
     http_version: 
-  recorded_at: Mon, 03 Oct 2016 19:33:27 GMT
+  recorded_at: Mon, 03 Oct 2016 19:33:31 GMT
 recorded_with: VCR 3.0.3
