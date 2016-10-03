@@ -48,6 +48,21 @@ module Envestnet
         })
       end
 
+      def accounts(cobrand_session_token:, user_session_token:, status: '', container: '', provider_account_id: '')
+        url = "#{base_url}/accounts"
+        query_params = [:status, :container, :provider_account_id].zip([
+          status,
+          container,
+          provider_account_id
+        ]).reject { |query, value|
+          value.to_s.strip.empty?
+        }.to_h
+        HttpWrapper.get(url: url, params: query_params, headers: {
+          authorization: "cobSession=#{cobrand_session_token},userSession=#{user_session_token}",
+          accept: :json
+        })
+      end
+
       def providers(cobrand_session_token:, user_session_token:)
         url = "#{base_url}/providers"
         HttpWrapper.get(url: url, headers: {

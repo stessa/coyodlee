@@ -111,4 +111,15 @@ class Envestnet::YodleeTest < Minitest::Test
       end
     end
   end
+
+  def test_accounts
+    with_session_tokens do |cobrand_session, user_session|
+      VCR.use_cassette('accounts_success') do
+        response = ::Envestnet::Yodlee.accounts cobrand_session_token: cobrand_session, user_session_token: user_session
+        accounts_json = JSON.parse(response.body, symbolize_names: true)
+
+        refute_empty accounts_json[:account]
+      end
+    end
+  end
 end

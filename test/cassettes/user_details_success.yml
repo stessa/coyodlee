@@ -14,7 +14,7 @@ http_interactions:
       User-Agent:
       - rest-client/2.0.0 (darwin14.4.0 x86_64) ruby/2.2.3p173
       Authorization:
-      - cobSession=08062013_2:5b3d62fb081772653265f4abf34694e953c5c5d1da951546b9d514b97a898f06bbf1701f7d26b949106b77f98fe057870e701f6754405d37cc304df1fd666060,userSession=08062013_0:7190139064e6bf53a9c11782e9f6f7de0c10800fd7dd67ed7b026270e3e016feca7a3a174039efac8967a84b2a0b3635c49efa7e891ebf6e2b0f64feae2378ea
+      - cobSession=08062013_1:7895d919ab1f859bd7aa3191132c7aded5652f528ac4b01a42d498d5d1295f7106d38ce4f1b3c3e56f8518981c7479e886683428c3a47399e95781ee1e7754e9,userSession=08062013_2:a1b8d18a7577c52709ee1848ee039964965a9dc84d30b622dd9a6b7f9f76bea7a047030766486d4da9ad36a6e9528101ef721a6cd2fe3425c1b2494f82142159
       Host:
       - developer.api.yodlee.com
   response:
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Yodlee-Ref-Id:
-      - x1475523211688C4Z26H
+      - G1475526931472l4V26O
       Accept-Charset:
       - big5, big5-hkscs, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858,
         ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147,
@@ -54,12 +54,12 @@ http_interactions:
       Content-Length:
       - '207'
       Date:
-      - Mon, 03 Oct 2016 19:33:31 GMT
+      - Mon, 03 Oct 2016 20:35:31 GMT
       Server:
       - Unknown
     body:
       encoding: UTF-8
       string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","email":"daniel.dyba@gmail.com","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy"}}}'
     http_version: 
-  recorded_at: Mon, 03 Oct 2016 19:33:31 GMT
+  recorded_at: Mon, 03 Oct 2016 20:35:31 GMT
 recorded_with: VCR 3.0.3
