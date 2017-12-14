@@ -11,7 +11,7 @@ module Envestnet
       def setup &block
         yield self
       end
-      
+
       def cobrand_login(username: cobranded_username, password: cobranded_password)
         url = "#{base_url}/cobrand/login"
         payload = {
