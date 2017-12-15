@@ -47,8 +47,8 @@ require 'envestnet-yodlee'
 
 Envestnet::Yodlee.setup do |config|
   config.base_url = ENV['YODLEE_BASE_URL']
-  config.cobranded_username = ENV['YODLEE_COBRAND_LOGIN']
-  config.cobranded_password = ENV['YODLEE_COBRAND_PASSWORD']
+  config.cobrand_login = ENV['YODLEE_COBRAND_LOGIN']
+  config.cobrand_password = ENV['YODLEE_COBRAND_PASSWORD']
 end
 ```
 
