@@ -15,6 +15,8 @@ module Envestnet
       def test_cobrand_successful_login
         cob_session = CobrandSession.new
 
+        assert cob_session.token.empty?
+
         VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true) do
           cob_session.login
         end

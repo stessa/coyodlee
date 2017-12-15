@@ -5,6 +5,10 @@ module Envestnet
     class CobrandSession
       attr_reader :token
 
+      def initialize
+        @token = ''
+      end
+
       def login
         HttpWrapper.post(
           url: "#{::Envestnet::Yodlee.base_url}/cobrand/login",
