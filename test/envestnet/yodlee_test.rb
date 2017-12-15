@@ -12,23 +12,20 @@ class Envestnet::YodleeTest < Minitest::Test
 
   def with_session_tokens &block
     cob_session = ::Envestnet::Yodlee::CobrandSession.new
-    cobrand_session = ''
 
     VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true) do
       cob_session.login
     end
 
-    user_session = ''
+    login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
+    password = ENV['YODLEE_USER_1_PASSWORD']
+    user_session = ::Envestnet::Yodlee::UserSession.new
 
     VCR.use_cassette('user_login_success', allow_playback_repeats: true) do
-      username = ENV['YODLEE_USER_1_LOGIN_NAME']
-      password = ENV['YODLEE_USER_1_PASSWORD']
-      user_response = ::Envestnet::Yodlee.user_login username: username, password: password, cobrand_session: cobrand_session
-      user_json = JSON.parse(user_response.body, symbolize_names: true)
-      user_session = user_json[:user][:session][:userSession]
+      user_session.login login_name: login_name, password: password
     end
 
-    block.call(cob_session.token, user_session)
+    block.call(cob_session.token, user_session.token)
   end
 
   def test_that_it_has_a_version_number
@@ -74,13 +71,14 @@ class Envestnet::YodleeTest < Minitest::Test
       cob_session.login
     end
 
-    VCR.use_cassette('user_login_success') do
-      username = ENV['YODLEE_USER_1_LOGIN_NAME']
-      password = ENV['YODLEE_USER_1_PASSWORD']
-      user_response = ::Envestnet::Yodlee.user_login username: username, password: password, cobrand_session: cob_session.token
-      user_json = JSON.parse(user_response.body, symbolize_names: true)
+    login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
+    password = ENV['YODLEE_USER_1_PASSWORD']
+    user_session = ::Envestnet::Yodlee::UserSession.new
 
-      refute_empty user_json[:user][:session][:userSession]
+    VCR.use_cassette('user_login_success') do
+      user_session.login login_name: login_name, password: password
+
+      refute_empty user_session.token
     end
   end
 
@@ -98,7 +96,6 @@ class Envestnet::YodleeTest < Minitest::Test
       end
     end
   end
-
 
   def test_providers
     with_session_tokens do |cobrand_session, user_session|
