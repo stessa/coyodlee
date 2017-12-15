@@ -6,22 +6,10 @@ require "envestnet/yodlee/http_wrapper"
 module Envestnet
   module Yodlee
     class << self
-      attr_accessor :base_url, :cobranded_username, :cobranded_password
+      attr_accessor :base_url, :cobrand_login, :cobrand_password
 
       def setup &block
         yield self
-      end
-
-      def cobrand_login(username: cobranded_username, password: cobranded_password)
-        url = "#{base_url}/cobrand/login"
-        payload = {
-          cobrand: {
-            cobrandLogin: username,
-            cobrandPassword: password,
-            locale: 'en_US'
-          }
-        }
-        HttpWrapper.post(url: url, body: payload.to_json, headers: { content_type: :json, accept: :json })
       end
 
       def user_login(username:, password:, cobrand_session:, locale: 'en_US')
