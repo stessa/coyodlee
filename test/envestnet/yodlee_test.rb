@@ -19,7 +19,7 @@ class Envestnet::YodleeTest < Minitest::Test
 
     login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
     password = ENV['YODLEE_USER_1_PASSWORD']
-    user_session = ::Envestnet::Yodlee::UserSession.new
+    user_session = ::Envestnet::Yodlee::UserSession.new cobrand_session: cob_session
 
     VCR.use_cassette('user_login_success', allow_playback_repeats: true) do
       user_session.login login_name: login_name, password: password
@@ -61,24 +61,6 @@ class Envestnet::YodleeTest < Minitest::Test
       cob_session.login
 
       refute_empty cob_session.token
-    end
-  end
-
-  def test_user_login
-    cob_session = ::Envestnet::Yodlee::CobrandSession.new
-
-    VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true, allow_unused_http_interactions: true) do
-      cob_session.login
-    end
-
-    login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
-    password = ENV['YODLEE_USER_1_PASSWORD']
-    user_session = ::Envestnet::Yodlee::UserSession.new
-
-    VCR.use_cassette('user_login_success') do
-      user_session.login login_name: login_name, password: password
-
-      refute_empty user_session.token
     end
   end
 
