@@ -25,6 +25,10 @@ module Envestnet
         }
       end
 
+      def auth_header
+        @token.empty? ? '' : "cobSession=#{@token}"
+      end
+
       def logout
         HttpWrapper.post(
           url: "#{::Envestnet::Yodlee.base_url}/cobrand/logout",
