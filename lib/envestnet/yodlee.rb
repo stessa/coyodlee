@@ -12,22 +12,6 @@ module Envestnet
         yield self
       end
 
-      def user_login(username:, password:, cobrand_session:, locale: 'en_US')
-        url = "#{base_url}/user/login"
-        payload = {
-          user: {
-            loginName: username,
-            password: password,
-            locale: locale
-          }
-        }
-        HttpWrapper.post(url: url, body: payload.to_json, headers: {
-          authorization: "cobSession=#{cobrand_session}",
-          content_type: :json,
-          accept: :json
-        })
-      end
-
       def user_details(cobrand_session_token:, user_session_token:)
         url = "#{base_url}/user"
         HttpWrapper.get(url: url, headers: {
