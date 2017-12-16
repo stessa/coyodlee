@@ -5,8 +5,9 @@ module Envestnet
     class UserSession
       attr_reader :token
 
-      def initialize
+      def initialize(cobrand_session:)
         @token = ''
+        @cobrand_session = cobrand_session
       end
 
       def login(login_name:, password:)
@@ -19,7 +20,11 @@ module Envestnet
               locale: 'en_US'
             }
           }.to_json,
-          headers: { content_type: :json, accept: :json }
+          headers: {
+            content_type: :json,
+            accept: :json,
+            authorization: @cobrand_session.auth_header
+          }
         ).tap { |response|
           @token = JSON.parse(response.body)['user']['session']['userSession']
         }

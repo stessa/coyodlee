@@ -13,10 +13,10 @@ http_interactions:
       - gzip, deflate
       User-Agent:
       - rest-client/2.0.2 (darwin14.5.0 x86_64) ruby/2.3.3p222
-      Authorization:
-      - cobSession=08062013_0:1deaba66ee3df60e4e0523f026a3d5e2a98baf82749e09119ead46646b9d145addd62191469a702bab59e1410c5be73b932c35e0c0d045e90fff4bf33122e9af
       Content-Type:
       - application/json
+      Authorization:
+      - cobSession=08062013_0:1deaba66ee3df60e4e0523f026a3d5e2a98baf82749e09119ead46646b9d145addd62191469a702bab59e1410c5be73b932c35e0c0d045e90fff4bf33122e9af
       Content-Length:
       - '80'
       Host:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Yodlee-Ref-Id:
-      - k1513282160597l4R26u000000NLZYT
+      - J1513383393817V4w26p000000NLBYG
       Accept-Charset:
       - big5, big5-hkscs, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858,
         ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147,
@@ -58,12 +58,12 @@ http_interactions:
       Content-Length:
       - '384'
       Date:
-      - Thu, 14 Dec 2017 20:09:20 GMT
+      - Sat, 16 Dec 2017 00:16:33 GMT
       Server:
       - Unknown
     body:
       encoding: UTF-8
-      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"roleType":"INDIVIDUAL","session":{"userSession":"08062013_1:ea8af9bb1190c23924104e135c3534ff6fcf151337a669ec9e6600d4afb1069dcd5bcccd0c888137e1e5d84f1105e96487fb03c4535aaffe15bb5bd63220d4e4"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","locale":"en_US"}}}'
+      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"roleType":"INDIVIDUAL","session":{"userSession":"08062013_2:4b5200721137736bf9ea06c765713c2886175148c2af7db1cf6c352d2a2e736916f168946e861c25eab408ba5b6d6f0c0594ea028a5a0b1f6ff21eb6df1b053a"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","locale":"en_US"}}}'
     http_version: 
-  recorded_at: Thu, 14 Dec 2017 20:09:20 GMT
+  recorded_at: Sat, 16 Dec 2017 00:16:33 GMT
 recorded_with: VCR 3.0.3
