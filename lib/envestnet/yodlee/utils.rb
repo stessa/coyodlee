@@ -1,6 +1,9 @@
 module Envestnet
   module Yodlee
     module Utils
+      # Converts a string to camel-case with the first letter uncapitalized
+      # @param str [String] The string to modify
+      # @return [String] The string as camel-cased with the first letter uncapitalized
       def uncapitalized_camelize(str)
         str
           .split('_')
