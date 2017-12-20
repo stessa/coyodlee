@@ -11,15 +11,15 @@ class Envestnet::YodleeTest < Minitest::Test
   end
 
   def with_session_tokens &block
-    cob_session = ::Envestnet::Yodlee::CobrandSession.new
+    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true) do
-      cob_session.login
+      cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
     end
 
     login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
     password = ENV['YODLEE_USER_1_PASSWORD']
-    user_session = ::Envestnet::Yodlee::UserSession.new cobrand_session: cob_session
+    user_session = ::Envestnet::Yodlee::Sessions::UserSession.new cobrand_session: cob_session
 
     VCR.use_cassette('user_login_success', allow_playback_repeats: true) do
       user_session.login login_name: login_name, password: password
@@ -45,20 +45,20 @@ class Envestnet::YodleeTest < Minitest::Test
   end
 
   def test_new_cobrand_login_without_arguments
-    cob_session = ::Envestnet::Yodlee::CobrandSession.new
+    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success') do
-      response = cob_session.login
+      response = cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
 
       assert_equal 200, response.code
     end
   end
 
   def test_new_cobrand_login_without_parameters_returns_session_token
-    cob_session = ::Envestnet::Yodlee::CobrandSession.new
+    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success') do
-      cob_session.login
+      cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
 
       refute_empty cob_session.token
     end
