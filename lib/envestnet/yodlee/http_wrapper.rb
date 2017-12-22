@@ -15,6 +15,10 @@ module Envestnet
         def post(url:, body:, headers: {})
           RestClient.post(url, body, headers)
         end
+
+        def delete(url:, headers: {})
+          RestClient.delete(url, nil, headers)
+        end
       end
     end
   end
