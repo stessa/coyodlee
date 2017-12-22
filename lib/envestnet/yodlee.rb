@@ -1,11 +1,12 @@
-require "envestnet/yodlee/version"
+require_relative "yodlee/version"
+require_relative "yodlee/http_wrapper"
 require "json"
 require "yajl"
-require "envestnet/yodlee/http_wrapper"
 
 module Envestnet
   # The global Yodlee configuration object
   module Yodlee
+
     class << self
       # The base url Yodlee provides for your cobrand
       # @return [String] The base url Yodlee provides for your cobrand
