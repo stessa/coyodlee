@@ -16,7 +16,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - cobSession=08062013_0:1deaba66ee3df60e4e0523f026a3d5e2a98baf82749e09119ead46646b9d145addd62191469a702bab59e1410c5be73b932c35e0c0d045e90fff4bf33122e9af
+      - cobSession=08062013_2:aea735434d0848daeae4b9e7dcba56d41b1a14ade5e8d3c5f05670bf3647e6d1fea4b61aa0698695b10c30d77206241e218534a8d8751c70e96e0c7368fdb0e6
       Content-Length:
       - '80'
       Host:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Yodlee-Ref-Id:
-      - J1513383393817V4w26p000000NLBYG
+      - N1513985645800C4Z27A000000NLnYQ
       Accept-Charset:
       - big5, big5-hkscs, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858,
         ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147,
@@ -58,12 +58,12 @@ http_interactions:
       Content-Length:
       - '384'
       Date:
-      - Sat, 16 Dec 2017 00:16:33 GMT
+      - Fri, 22 Dec 2017 23:34:06 GMT
       Server:
       - Unknown
     body:
       encoding: UTF-8
-      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"roleType":"INDIVIDUAL","session":{"userSession":"08062013_2:4b5200721137736bf9ea06c765713c2886175148c2af7db1cf6c352d2a2e736916f168946e861c25eab408ba5b6d6f0c0594ea028a5a0b1f6ff21eb6df1b053a"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","locale":"en_US"}}}'
+      string: '{"user":{"id":10051243,"loginName":"<USER1_LOGIN_NAME>","name":{"first":"<USER1_LOGIN_NAME>","last":"<USER1_LOGIN_NAME>"},"roleType":"INDIVIDUAL","session":{"userSession":"08062013_1:77ec944a573bfc815f1e90ebf2b6cc889e83b45e3afa7181c51a78e4ef9aeaef808c3b448449f4fa47664f8dd48309af42dfe5063fc7007977e4801c16df5cf6"},"preferences":{"currency":"USD","timeZone":"PST","dateFormat":"MM/dd/yyyy","locale":"en_US"}}}'
     http_version: 
-  recorded_at: Sat, 16 Dec 2017 00:16:33 GMT
+  recorded_at: Fri, 22 Dec 2017 23:34:06 GMT
 recorded_with: VCR 3.0.3

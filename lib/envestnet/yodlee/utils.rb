@@ -16,7 +16,7 @@ module Envestnet
         str.sub(/^_/, '')
       end
 
-      def sub_double_undescore(str)
+      def sub_double_underscore(str)
         str.gsub(/__/, '.')
       end
 
