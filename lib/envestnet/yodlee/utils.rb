@@ -11,6 +11,18 @@ module Envestnet
           .join
           .tap { |w| w[0] = w[0].downcase }
       end
+
+      def sub_underscore(str)
+        str.sub(/^_/, '')
+      end
+
+      def sub_double_undescore(str)
+        str.gsub(/__/, '.')
+      end
+
+      def build_url(path)
+        ::Envestnet::Yodlee.base_url.to_s + path
+      end
     end
   end
 end
