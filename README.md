@@ -1,6 +1,7 @@
 # Coyodlee
 [![Build Status](https://travis-ci.com/pennymac/coyodlee.svg?token=KvBtKQs616ELBMQxp2n7&branch=master)](https://travis-ci.com/pennymac/coyodlee)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f36b069069540b196fbd/maintainability)](https://codeclimate.com/github/pennymac/coyodlee/maintainability)
+[![Gem Version](https://badge.fury.io/rb/coyodlee.svg)](https://badge.fury.io/rb/coyodlee)
 
 ## Setup
 
