@@ -1,5 +1,5 @@
-# Envestnet::Yodlee
-[![Build Status](https://travis-ci.com/pennymac/envestnet-yodlee.svg?token=KvBtKQs616ELBMQxp2n7&branch=master)](https://travis-ci.com/pennymac/envestnet-yodlee)
+# Coyodlee
+[![Build Status](https://travis-ci.com/pennymac/coyodlee.svg?token=KvBtKQs616ELBMQxp2n7&branch=master)](https://travis-ci.com/pennymac/coyodlee)
 
 ## Setup
 
@@ -27,7 +27,7 @@ Export the following environment variables:
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'envestnet-yodlee'
+gem 'coyodlee'
 ```
 
 And then execute:
@@ -36,16 +36,16 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install envestnet-yodlee
+    $ gem install coyodlee
 
 ## Usage
 
 This API exposes a ```setup``` method:
 
 ``` ruby
-require 'envestnet-yodlee'
+require 'coyodlee'
 
-Envestnet::Yodlee.setup do |config|
+Coyodlee.setup do |config|
   config.base_url = ENV['YODLEE_BASE_URL']
   config.cobrand_login = ENV['YODLEE_COBRAND_LOGIN']
   config.cobrand_password = ENV['YODLEE_COBRAND_PASSWORD']
@@ -71,7 +71,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pennymac/envestnet-yodlee. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pennymac/coyodlee. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

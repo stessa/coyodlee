@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'envestnet/yodlee/version'
+require 'coyodlee/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "envestnet-yodlee"
-  spec.version       = Envestnet::Yodlee::VERSION
+  spec.name          = "coyodlee"
+  spec.version       = Coyodlee::VERSION
   spec.authors       = ["Daniel Dyba"]
   spec.email         = ["daniel.dyba@gmail.com"]
 
   spec.summary       = %q{A Ruby wrapper client for Envestnet's Yodlee API}
   spec.description   = %q{A Ruby wrapper client for Envestnet's Yodlee API}
-  spec.homepage      = "https://github.com/pennymac/envestnet-yodlee"
+  spec.homepage      = "https://github.com/pennymac/coyodlee"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

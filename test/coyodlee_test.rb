@@ -1,10 +1,10 @@
 require 'test_helper'
-require 'envestnet/yodlee/client'
+require 'coyodlee/client'
 
-class Envestnet::YodleeTest < Minitest::Test
+class CoyodleeTest < Minitest::Test
 
   def setup
-    ::Envestnet::Yodlee.setup do |config|
+    Coyodlee.setup do |config|
       config.base_url = "https://developer.api.yodlee.com/ysl/restserver/v1"
       config.cobrand_login = ENV['YODLEE_COBRAND_LOGIN']
       config.cobrand_password = ENV['YODLEE_COBRAND_PASSWORD']
@@ -12,15 +12,15 @@ class Envestnet::YodleeTest < Minitest::Test
   end
 
   def with_session_tokens &block
-    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
+    cob_session = Coyodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success', allow_playback_repeats: true) do
-      cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
+      cob_session.login login_name: Coyodlee.cobrand_login, password: Coyodlee.cobrand_password
     end
 
     login_name = ENV['YODLEE_USER_1_LOGIN_NAME']
     password = ENV['YODLEE_USER_1_PASSWORD']
-    user_session = ::Envestnet::Yodlee::Sessions::UserSession.new cobrand_session: cob_session
+    user_session = Coyodlee::Sessions::UserSession.new cobrand_session: cob_session
 
     VCR.use_cassette('user_login_success', allow_playback_repeats: true) do
       user_session.login login_name: login_name, password: password
@@ -30,36 +30,36 @@ class Envestnet::YodleeTest < Minitest::Test
   end
 
   def test_that_it_has_a_version_number
-    refute_nil ::Envestnet::Yodlee::VERSION
+    refute_nil Coyodlee::VERSION
   end
 
   def test_it_provides_a_setup_hook
-    ::Envestnet::Yodlee.setup do |config|
+    Coyodlee.setup do |config|
       config.base_url = 'http://example.org'
       config.cobrand_login = 'yodlee_cobranded_username'
       config.cobrand_password = 'yodlee_cobranded_password'
     end
 
-    assert_equal 'http://example.org', ::Envestnet::Yodlee.base_url
-    assert_equal 'yodlee_cobranded_username', ::Envestnet::Yodlee.cobrand_login
-    assert_equal 'yodlee_cobranded_password', ::Envestnet::Yodlee.cobrand_password
+    assert_equal 'http://example.org', Coyodlee.base_url
+    assert_equal 'yodlee_cobranded_username', Coyodlee.cobrand_login
+    assert_equal 'yodlee_cobranded_password', Coyodlee.cobrand_password
   end
 
   def test_new_cobrand_login_without_arguments
-    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
+    cob_session = Coyodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success') do
-      response = cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
+      response = cob_session.login login_name: Coyodlee.cobrand_login, password: Coyodlee.cobrand_password
 
       assert_equal 200, response.code
     end
   end
 
   def test_new_cobrand_login_without_parameters_returns_session_token
-    cob_session = ::Envestnet::Yodlee::Sessions::CobrandSession.new
+    cob_session = Coyodlee::Sessions::CobrandSession.new
 
     VCR.use_cassette('cobrand_login_success') do
-      cob_session.login login_name: ::Envestnet::Yodlee.cobrand_login, password: ::Envestnet::Yodlee.cobrand_password
+      cob_session.login login_name: Coyodlee.cobrand_login, password: Coyodlee.cobrand_password
 
       refute_empty cob_session.token
     end
@@ -84,7 +84,7 @@ class Envestnet::YodleeTest < Minitest::Test
   def test_providers
     with_session_tokens do |cobrand_session, user_session|
       VCR.use_cassette('providers_success') do
-        client = ::Envestnet::Yodlee::Client.new(user_session)
+        client = Coyodlee::Client.new(user_session)
         response = client.get_providers
         providers_json = JSON.parse(response.body, symbolize_names: true)
 
@@ -96,7 +96,7 @@ class Envestnet::YodleeTest < Minitest::Test
   def test_accounts
     with_session_tokens do |cobrand_session, user_session|
       VCR.use_cassette('accounts_success') do
-        client = ::Envestnet::Yodlee::Client.new(user_session)
+        client = Coyodlee::Client.new(user_session)
         response = client.get_accounts
         accounts_json = JSON.parse(response.body, symbolize_names: true)
 

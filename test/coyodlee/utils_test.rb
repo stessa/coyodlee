@@ -1,8 +1,8 @@
 require 'test_helper'
-require 'envestnet/yodlee/utils'
+require 'coyodlee/utils'
 
-class Envestnet::Yodlee::UtilsTest < Minitest::Test
-  include ::Envestnet::Yodlee::Utils
+class Coyodlee::UtilsTest < Minitest::Test
+  include Coyodlee::Utils
 
   def test_uncapitalized_camelize
     assert_equal uncapitalized_camelize('hello_world'), 'helloWorld'
