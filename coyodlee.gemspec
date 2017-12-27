@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["daniel.dyba@gmail.com"]
 
   spec.summary       = %q{A Ruby wrapper client for Envestnet's Yodlee API}
-  spec.description   = %q{A Ruby wrapper client for Envestnet's Yodlee API}
+  spec.description   = %q{A Ruby wrapper client for Envestnet's Yodlee API. For details about the API endpoints, sign in to https://developer.yodlee.com}
   spec.homepage      = "https://github.com/pennymac/coyodlee"
   spec.license       = "MIT"
 
@@ -33,8 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "vcr", "~> 3.0"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "yard"
-  spec.add_development_dependency "activesupport"
-  spec.add_development_dependency "travis"
+  spec.add_development_dependency "webmock", '~> 3.1'
+  spec.add_development_dependency "yard", '~> 0.9'
+  spec.add_development_dependency "activesupport", '5.1'
+  spec.add_development_dependency "travis", '~> 1.8'
 end
