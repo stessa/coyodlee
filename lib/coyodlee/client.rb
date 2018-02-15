@@ -170,15 +170,9 @@ module Coyodlee
       )
     end
 
-    def get_provider_details(provider_id:, provider_account_id:)
-      params = [:provider_account_id]
-                  .map { |sym| uncapitalized_camelize sym.to_s }
-                  .zip([provider_account_id])
-                  .reject { |query, value| value.to_s.strip.empty? }
-                  .to_h
-      HttpWrapper.post(
+    def get_provider_details(provider_id:)
+      HttpWrapper.get(
         url: build_url("/providers/#{provider_id}"),
-        params: params,
         headers: {
           authorization: @session.auth_header,
           accept: :json
@@ -438,10 +432,6 @@ module Coyodlee
     end
 
     def get_transactions(params={})
-      params = params
-                  .map { |sym, val| [uncapitalized_camelize(sym.to_s), val] }
-                  .reject { |_, value| value.to_s.strip.empty? }
-                  .to_h
       HttpWrapper.get(
         url: build_url('/transactions'),
         params: params,
@@ -543,6 +533,19 @@ module Coyodlee
         headers: {
           authorization: @session.auth_header,
           accept: :json
+        }
+      )
+    end
+
+    def get_access_tokens(fin_app_id:)
+      res = HttpWrapper.get(
+        url: build_url("/user/accessTokens"),
+        params: {
+          appIds: fin_app_id
+        },
+        headers: {
+          authorization: @session.auth_header,
+          accpet: :json
         }
       )
     end
