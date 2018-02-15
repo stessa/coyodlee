@@ -12,7 +12,11 @@ module Coyodlee
       end
 
       def post(url:, body:, headers: {})
-        RestClient.post(url, body, headers)
+        begin
+          RestClient.post(url, body, headers)
+        rescue RestClient::ExceptionWithResponse => err
+          err.response
+        end
       end
 
       def put(url:, body:, headers: {})

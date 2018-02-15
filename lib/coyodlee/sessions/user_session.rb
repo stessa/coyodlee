@@ -23,7 +23,7 @@ module Coyodlee
       # @param password [String] the password of the user
       # @return the underlying response object for the HTTP client you've selected, RestClient by default
       def login(login_name:, password:)
-        HttpWrapper.post(
+        res = HttpWrapper.post(
           url: "#{::Coyodlee.base_url}/user/login",
           body: {
             user: {
@@ -38,7 +38,7 @@ module Coyodlee
             authorization: @cobrand_session.auth_header
           }
         ).tap { |response|
-          @token = JSON.parse(response.body)['user']['session']['userSession']
+          @token = JSON.parse(response.body)['user']['session']['userSession'] if response.code == 200
         }
       end
 
@@ -64,7 +64,7 @@ module Coyodlee
             authorization: @cobrand_session.auth_header
           }
         ).tap do |response|
-          @token = JSON.parse(response.body)['user']['session']['userSession']
+          @token = JSON.parse(response.body)['user']['session']['userSession'] if response.code == 200
         end
       end
 
