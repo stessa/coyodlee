@@ -38,7 +38,7 @@ module Coyodlee
             authorization: @cobrand_session.auth_header
           }
         ).tap { |response|
-          Rails.logger.info "Login#{response.code}:::::#{JSON.parse(response.body)['user']['session']['userSession']}"
+          Rails.logger.info "Login#{response.code}:::::#{JSON.parse(response.body)['user']['session']['userSession']}" if response.code == 200
           @token = JSON.parse(response.body)['user']['session']['userSession'] if response.code == 200
         }
       end
@@ -65,7 +65,7 @@ module Coyodlee
             authorization: @cobrand_session.auth_header
           }
         ).tap do |response|
-          Rails.logger.info "#{response.code}:::::#{JSON.parse(response.body)['user']['session']['userSession']}"
+          Rails.logger.info "#{response.code}:::::#{JSON.parse(response.body)['user']['session']['userSession']}" if response.code == 200
           @token = JSON.parse(response.body)['user']['session']['userSession'] if response.code == 200
         end
       end
