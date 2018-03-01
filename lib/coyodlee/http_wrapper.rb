@@ -24,7 +24,7 @@ module Coyodlee
       end
 
       def delete(url:, headers: {})
-        RestClient.delete(url, nil, headers)
+        RestClient.delete(url, headers)
       end
     end
   end
