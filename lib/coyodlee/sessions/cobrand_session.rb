@@ -9,8 +9,8 @@ module Coyodlee
       attr_reader :token
 
       # Creates a new cobrand session
-      def initialize
-        @token = ''
+      def initialize(token='')
+        @token = token
       end
 
       # Initiates a cobrand session
