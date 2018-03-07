@@ -8,11 +8,12 @@ module Coyodlee
       @session = session
     end
 
-    def get_accounts
+    def get_accounts(params={})
       HttpWrapper.get(
         url: build_url('/accounts'),
         headers: {
           authorization: @session.auth_header,
+          params: params,
           accept: :json
         }
       )
