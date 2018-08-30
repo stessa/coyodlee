@@ -11,8 +11,8 @@ module Coyodlee
       # Creates a new user session
       #
       # @param cobrand_session [CobrandSession] the cobrand session
-      def initialize(cobrand_session:)
-        @token = ''
+      def initialize(cobrand_session:, token: '')
+        @token = token
         @cobrand_session = cobrand_session
       end
 
