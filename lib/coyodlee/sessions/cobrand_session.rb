@@ -13,6 +13,43 @@ module Coyodlee
         @token = token
       end
 
+      def get_events
+        HttpWrapper.get(
+          url: "#{::Coyodlee.base_url}/cobrand/config/notifications/events",
+          headers: {
+            authorization: auth_header,
+            accept: :json
+          }
+        )
+      end
+
+      def subscribe_event(event_name, endpoint)
+        HttpWrapper.post(
+          url: "#{::Coyodlee.base_url}/cobrand/config/notifications/events/#{event_name}",
+          body: {
+            event: {
+              callbackUrl: endpoint
+            }
+          }.to_json,
+          headers: {
+            authorization: auth_header,
+            content_type: :json,
+            accept: :json
+          }
+        )
+      end
+
+      def delete_event(event_name)
+        HttpWrapper.delete(
+          url: "#{::Coyodlee.base_url}/cobrand/config/notifications/events/#{event_name}",
+          headers: {
+            authorization: auth_header,
+            content_type: :json,
+            accept: :json
+          }
+        )
+      end
+
       # Initiates a cobrand session
       #
       # @return the underlying response object for the HTTP client you've selected, RestClient by default
