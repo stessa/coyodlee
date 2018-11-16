@@ -229,9 +229,9 @@ module Coyodlee
       )
     end
 
-    def update_provider_account(body:)
+    def update_provider_account(body:,provider_account_ids:)
       HttpWrapper.put(
-        url: build_url('/provideAccounts'),
+        url: build_url("/providerAccounts?providerAccountIds=#{provider_account_ids}"),
         body: body,
         headers: {
           authorization: @session.auth_header,
