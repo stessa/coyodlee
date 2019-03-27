@@ -218,7 +218,7 @@ module Coyodlee
       )
     end
 
-    def get_verification_status(provider_account_id:)
+    def get_verification_status(body:,provider_account_id:)
       HttpWrapper.get(
         url: build_url("/providerAccounts/verification/#{provider_account_id}"),
         body: body,
@@ -265,6 +265,23 @@ module Coyodlee
         }
       )
     end
+
+    def get_provider_account_profile(provider_account_id:)
+      params = [:provider_account_id, :_include]
+                  .map { |sym| uncapitalized_camelize sym.to_s }
+                  .zip([provider_account_id, _include])
+                  .reject { |query, value| value.to_s.strip.empty? }
+                  .to_h
+      HttpWrapper.get(
+        url: build_url('/providerAccounts/profile'),
+        params: params,
+        headers: {
+          authorization: @session.auth_header,
+          accept: :json
+        }
+      )
+    end
+
 
     def get_provider_accounts
       HttpWrapper.get(

@@ -22,6 +22,31 @@ module Coyodlee
       # @param login_name [String] the login name of the user
       # @param password [String] the password of the user
       # @return the underlying response object for the HTTP client you've selected, RestClient by default
+      res = ::Coyodlee::HttpWrapper.get(
+        url: "#{::Coyodlee.base_url}/user/credentials/token?loginName=#{a.uid}",
+        headers: {
+          content_type: :json,
+          accept: :json,
+          authorization: @cob_session.auth_header
+        }
+      )
+
+      res = ::Coyodlee::HttpWrapper.post(
+        url: "#{::Coyodlee.base_url}/user/credentials",
+        body: {
+          user: {
+            loginName: a.uid,
+            newPassword: a.yodlee_password,
+            token: token,
+            locale: 'en_US'
+          }
+        }.to_json,
+        headers: {
+          content_type: :json,
+          accept: :json,
+          authorization: @cob_session.auth_header
+        }
+      )
       def login(login_name:, password:)
         res = HttpWrapper.post(
           url: "#{::Coyodlee.base_url}/user/login",
