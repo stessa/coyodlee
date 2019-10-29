@@ -55,6 +55,19 @@ module Coyodlee
           url: "#{::Coyodlee.base_url}/user/logout"
         )
       end
+
+      # Terminates the user session
+      #
+      # @return the underlying response object for the HTTP client you've selected, RestClient by default
+      def remove_user
+        HttpWrapper.delete(
+          url: "#{::Coyodlee.base_url}/user/unregister",
+          headers: {
+            authorization: @session.auth_header,
+            accept: :json
+          }
+        )
+      end
     end
   end
 end
